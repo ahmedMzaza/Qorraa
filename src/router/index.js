@@ -5,6 +5,10 @@ import EmailUs from "@/views/EmailUs.vue";
 
 const routes = [
   {
+    path: "/:catchAll(.*)",
+    redirect: "/home",
+  },
+  {
     path: "/home",
     name: "home",
     component: HomeView,
