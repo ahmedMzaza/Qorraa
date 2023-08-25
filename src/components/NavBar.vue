@@ -1,19 +1,29 @@
 <template>
-  <nav>
-    <div class="col-se">
-      <a href="" class="button">تطوع معنا</a>
-      <a href="" class="se">
-        <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-        <p>بحث</p>
-      </a>
+  <nav class="z-3 w-100 shadow bg-white fixed-top">
+    <div
+      class="row w-100 m-0 d-flex justify-content-between align-items-center"
+    >
+      <div
+        class="col-se col d-flex justify-content-between align-items-center p-0 m-0 position-relative"
+      >
+        <a href="" class="button w-50 border-0 rounded h6 text-white py-1 px-2"
+          >تطوع معنا</a
+        >
+        <a href="" class="se w-50 d-flex">
+          <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+          <p>بحث</p>
+        </a>
+      </div>
+      <div class="col-menu col">
+        <router-link to="/home">الرئيسية</router-link>
+        <router-link to="/about">من نحن</router-link>
+        <router-link to="/Emailus">راسلنا</router-link>
+      </div>
+      <font-awesome-icon icon="bars" class="bar" v-on:click="toggleNav" />
+      <div class="col">
+        <img src="../assets/الجريدة-1.png" alt="" />
+      </div>
     </div>
-    <div class="col-menu">
-      <router-link to="/home">الرئيسية</router-link>
-      <router-link to="/about">من نحن</router-link>
-      <router-link to="/Emailus">راسلنا</router-link>
-    </div>
-    <font-awesome-icon icon="bars" class="bar" v-on:click="toggleNav" />
-    <img src="../assets/الجريدة-1.png" alt="" />
   </nav>
   <div class="sec-nav" :class="{ active: isNavOpen }">
     <ul>
@@ -43,42 +53,24 @@ export default {
 };
 </script>
 <style scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--padding);
-  height: 85px;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-bottom: 1px solid #00000063;
-  box-shadow: 0px 10px 40px #868181;
-  width: 100%;
-  z-index: 1000;
-  background-color: white;
+.sec-nav ul li {
+  transition: 0.5s;
 }
 
-nav .col-se {
-  width: 30%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  height: 40px;
+.sec-nav ul li:hover {
+  transform: translateX(-10px);
+}
+
+nav {
+  padding: var(--padding);
+  height: 85px;
+  border-bottom: 1px solid #00000063;
 }
 
 nav .col-se .button {
-  width: 40%;
   background-color: var(--main-color);
-  color: white !important;
-  font-size: 16px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 2px;
 }
+
 nav .col-se .se {
   display: flex;
   width: 58%;
@@ -92,9 +84,11 @@ nav .col-se .se {
   background-color: #eee;
   color: #777 !important;
 }
+
 nav .col-se .se p {
   margin: 0;
 }
+
 nav .col-menu {
   width: 50%;
   color: var(--text-color);
@@ -106,12 +100,15 @@ nav .col-menu {
   align-items: center;
   padding: 0 60px;
 }
+
 nav a.router-link-exact-active {
   color: var(--main-color) !important;
 }
+
 nav .bar {
   font-size: 32px;
 }
+
 @media (max-width: 1000px) {
   nav {
     padding: 0 25px !important;
@@ -129,23 +126,29 @@ nav .bar {
     padding: 0 !important;
     gap: 50px !important;
   }
+
   nav .col-se .se {
     display: none !important;
   }
+
   nav .col-se .button {
     width: 100% !important;
   }
 }
+
 @media (max-width: 600px) {
   nav .col-menu {
     display: none !important;
   }
+
   nav .col-se {
     display: none;
   }
+
   nav .col-se .button {
     display: none;
   }
+
   .sec-nav {
     width: 100%;
     height: 240px;
@@ -162,11 +165,13 @@ nav .bar {
     transition: transform 0.3s, opacity 0.1s;
     z-index: -500;
   }
+
   .sec-nav.active {
     opacity: 1 !important;
     transform: translateY(0) !important;
     z-index: 100;
   }
+
   .sec-nav ul {
     padding: 0 !important;
     display: flex;
@@ -175,6 +180,7 @@ nav .bar {
     align-items: start;
     font-size: 20px;
   }
+
   .sec-nav .button {
     width: 155px;
     display: flex;
@@ -187,14 +193,17 @@ nav .bar {
     justify-content: center;
     align-items: center;
   }
+
   .sec-nav .button a {
     color: white !important;
   }
 }
+
 @media (min-width: 600px) {
   nav .bar {
     display: none;
   }
+
   .sec-nav {
     display: none !important;
   }

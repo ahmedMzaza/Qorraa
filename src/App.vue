@@ -1,11 +1,13 @@
 <template>
   <Navbar />
+  <Footer />
 </template>
 <script>
-import Navbar from "@/components//NavBar.vue";
+import Navbar from "@/components/NavBar.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   name: "Home",
-  components: { Navbar },
+  components: { Navbar, Footer },
   data() {
     return {};
   },
@@ -14,9 +16,11 @@ document.documentElement.dir = "rtl";
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+
 * {
   box-sizing: border-box !important;
 }
+
 :root {
   --main-color: #5165fd;
   --text-color: #383838;

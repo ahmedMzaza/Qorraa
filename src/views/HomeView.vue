@@ -173,7 +173,11 @@ export default {
     <div class="container">
       <div class="cards row">
         <div class="col-md-4 col-12 col4">
-          <div class="card Arow" v-for="(card, index) in cardsReading.slice(1, 3)" :key="index">
+          <div
+            class="card Arow"
+            v-for="(card, index) in cardsReading.slice(1, 3)"
+            :key="index"
+          >
             <img :src="card.img" class="row" :alt="'Image ' + (index + 1)" />
             <div class="text">
               <p>{{ card["date"] }}</p>
@@ -194,11 +198,35 @@ export default {
       </div>
       <!---- Start First Swiper ---->
       <div class="title">الاقسام</div>
-      <swiper class="FrSwiper" :slidesPerView="5" :spaceBetween="20" :slidesPerGroup="1" :loop="true"
-        :loopFillGroupWithBlank="true" :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange" :navigation="{
+      <swiper
+        class="FrSwiper"
+        :slidesPerView="5"
+        :spaceBetween="20"
+        :slidesPerGroup="1"
+        :loop="true"
+        :loopFillGroupWithBlank="true"
+        :modules="modules"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :navigation="{
           nextEl: '.FrSwiperNext',
           prevEl: '.FrSwiperPrev',
-        }">
+        }"
+        :breakpoints="{
+          '320': {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          '640': {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          '1200': {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+        }"
+      >
         <SwiperSlide class="cardB" v-for="card in sections">
           <img :src="card['img']" />
           <p>{{ card["title"] }}</p>
@@ -259,11 +287,35 @@ export default {
           <font-awesome-icon icon="fa-solid fa-arrow-left-long" />
         </div>
       </div>
-      <swiper class="SeSwiper" :slidesPerView="3" :spaceBetween="20" :slidesPerGroup="1" :loop="true"
-        :loopFillGroupWithBlank="true" :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange" :navigation="{
+      <swiper
+        class="SeSwiper"
+        :slidesPerView="3"
+        :spaceBetween="20"
+        :slidesPerGroup="1"
+        :loop="true"
+        :loopFillGroupWithBlank="true"
+        :modules="modules"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :navigation="{
           nextEl: '.SeSwiperNext',
           prevEl: '.SeSwiperPrev',
-        }">
+        }"
+        :breakpoints="{
+          '320': {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          '640': {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          '1200': {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+        }"
+      >
         <SwiperSlide v-for="card in cardsReading">
           <img :src="card['img']" />
           <div class="text">
@@ -280,12 +332,13 @@ export default {
       <div class="line"></div>
       <div class="form">
         <h1>اشترك ليصلك جميع المقالات</h1>
-        <h4>ابقي علي اطلاع مع مقالتنا فور نزولها مع خدمة الرسائل البريدية
-          هذه الخدمة مجانية تماماً</h4>
+        <h4>
+          ابقي علي اطلاع مع مقالتنا فور نزولها مع خدمة الرسائل البريدية هذه
+          الخدمة مجانية تماماً
+        </h4>
         <div class="emailL">
           <span>أشترك</span>
           البريد الإلكتروني
-
         </div>
       </div>
       <div class="line"></div>
@@ -320,31 +373,6 @@ export default {
   -webkit-text-fill-color: transparent;
   position: relative;
   padding: 45px 0;
-}
-
-.title::before,
-.title::after {
-  content: " ";
-  background-color: #fece2f;
-
-  display: inline-block;
-  width: 2px;
-  transform: rotate(40deg);
-  position: absolute;
-
-  z-index: -1;
-}
-
-.title::before {
-  height: 52px;
-  left: 37%;
-  bottom: 26px;
-}
-
-.title::after {
-  height: 26px;
-  left: 27%;
-  bottom: 40px;
 }
 
 /*************** End Global ***************/
@@ -564,7 +592,6 @@ export default {
 /*************** Start Second Swiper ***************/
 .swiper.SeSwiper {
   margin-bottom: 120px;
-
 }
 
 .Bswiper {
@@ -633,20 +660,32 @@ export default {
   color: rgba(56, 56, 56, 0.8);
   padding-top: 25px;
   width: 45%;
-  line-height: 1.5;padding-bottom: 20px;
+  line-height: 1.5;
+  padding-bottom: 20px;
 }
 
 .form .emailL {
   width: 55%;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 18px 0;
+  height: 75px;
   font-size: 24px;
-  color: rgba(56, 56, 56, 0.31);position: relative;
+  color: rgba(56, 56, 56, 0.31);
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .form .emailL span {
- position: absolute;
- right: 0;
+  position: absolute;
+  right: 0;
+  padding: 0 20px 0;
+  background-color: var(--main-color);
+  height: 100%;
+  color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 /*************** End Email ***************/
@@ -668,7 +707,7 @@ export default {
     font-size: 24px;
   }
 
-  .title+p {
+  .title + p {
     font-size: 12px;
   }
 
@@ -714,8 +753,26 @@ export default {
     width: 100% !important;
   }
 
-  .home .cards>.card {
+  .home .cards > .card {
     width: 100% !important;
+  }
+
+  .form .emailL {
+    font-size: 14px;
+    height: 40px;
+    justify-content: end;
+    padding-left: 10px;
+  }
+
+  .form h1 {
+    padding: 35px 0 0 !important;
+    font-size: 20px !important;
+  }
+
+  .form h4 {
+    padding-top: 5px !important;
+    font-size: 16px !important;
+    width: auto !important;
   }
 }
 
@@ -754,6 +811,11 @@ export default {
   .cardSe .textCardSe h4 {
     font-size: 25px;
   }
+
+  .form .emailL {
+    width: 80% !important;
+  }
 }
 
-/*************** End Media ***************/</style>
+/*************** End Media ***************/
+</style>
