@@ -2,10 +2,10 @@
   <div class="about">
     <!-- Start Row-1 -->
     <div class="container">
-      <div class="row1">
-        <div class="col-5">
-          <h1>لمحة عن</h1>
-          <h1 class="title">قُرَّاءْ</h1>
+      <div class="row1 d-flex justify-content-between ">
+        <div class="col-5 d-flex flex-column align-items-start justify-content-center ">
+          <h1 class=" mx-auto">لمحة عن</h1>
+          <h1 class="title mx-auto">قُرَّاءْ</h1>
 
         </div>
         <div class="col-6" style="padding: 30px 0 0 0;">
@@ -22,16 +22,17 @@
     <!-- End Row-1 -->
     <!-- Start card -->
     <div class="container">
-      <div class="cardo">
-        <div class="cardO">
+      <div class="d-flex justify-content-between text-end">
+        <div class="cardO col">
           <h4>اهدفنا</h4>
           <p>تحقيق التنمية الثقافية واالجتماعية كجزء من التنمية المستدامة.
             ممارسة اللغة العربية الفصيحة من خالل ورش اللغة.
             لقاءات مع نماذج مشرفة وإبراز دورهم في المجتمع.</p>
         </div>
-        <div class="cardO">
+        <div class="cardO col">
           <h4>رؤيتنا</h4>
-          <p>نطمح إلى تشجيع ثقافة القراءة وإثراء المعرفة في المجتمع العربي. نسعى لأن نصبح المصدر الرئيسي والموجه لكل محبي
+          <p>نطمح إلى تشجيع ثقافة القراءة وإثراء المعرفة في المجتمع العربي. نسعى لأن نصبح المصدر
+            الرئيسي والموجه لكل محبي
             القراءة في العالم العربي، ونسهم في بناء جيل قارئ مثقف ومبدع.</p>
         </div>
       </div>
@@ -139,22 +140,13 @@
 
 /*************** End Global ***************/
 /*************** Start Row-1 ***************/
-.about .row1 {
-  display: flex;
-  justify-content: space-between;
-}
 
 .about .row1 .col-5 {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
   row-gap: 50px;
 }
 
 .about .row1 .col-5 .title {
   position: relative;
-  right: 245px;
   padding: 0;
 }
 
@@ -178,11 +170,6 @@
 
 /*************** End Row-1 ***************/
 /*************** Start card  ***************/
-.container .cardo {
-  display: flex;
-  justify-content: space-between;
-  text-align: start;
-}
 
 .container .cardO {
   width: 40%;
@@ -237,8 +224,13 @@
 }
 
 .company .container .img .imgs {
+  max-width: 100%;
+}
+
+.company .container .img .imgs {
   position: relative;
   transition: 1s;
+  max-width: 10%;
 }
 
 

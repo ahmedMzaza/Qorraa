@@ -1,35 +1,32 @@
 <template>
-  <nav class="z-3 w-100 shadow bg-white fixed-top">
-    <div
-      class="row w-100 m-0 d-flex justify-content-between align-items-center"
-    >
-      <div
-        class="col-se col d-flex justify-content-between align-items-center p-0 m-0 position-relative"
-      >
-        <a href="" class="button w-50 border-0 rounded h6 text-white py-1 px-2"
-          >تطوع معنا</a
-        >
-        <a href="" class="se w-50 d-flex">
+  <nav class=" xl-px-4 z-3 w-100 shadow d-flex align-items-center bg-white fixed-top">
+    <div class="row w-100 m-0 d-flex justify-content-between align-items-center">
+      <div class="col-se gap-2 col d-flex justify-content-between align-items-center p-0 m-0 position-relative">
+        <a class="button w-50 border-0 rounded h6 text-white py-2 m-0 px-2">تطوع معنا</a>
+        <a href="" style="height:35.2px"
+          class="se gap-2 w-50 d-flex align-items-center justify-content-start   pe-2 py-1 desplay-6  rounded  bg-body-tertiary  text-secondary">
           <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-          <p>بحث</p>
+          <p class="m-0">بحث</p>
         </a>
       </div>
-      <div class="col-menu col">
+      <div class="col-menu col-6 col-lg d-flex align-items-center justify-content-center pe-5 fw-normal fs-5  py-0">
         <router-link to="/home">الرئيسية</router-link>
         <router-link to="/about">من نحن</router-link>
         <router-link to="/Emailus">راسلنا</router-link>
       </div>
-      <font-awesome-icon icon="bars" class="bar" v-on:click="toggleNav" />
-      <div class="col">
+      <div class="bar col d-flex align-items-center justify-content-start  fs-1 ">
+        <font-awesome-icon icon="bars" v-on:click="toggleNav" />
+      </div>
+      <div class="col d-flex justify-content-end">
         <img src="../assets/الجريدة-1.png" alt="" />
       </div>
     </div>
   </nav>
-  <div class="sec-nav" :class="{ active: isNavOpen }">
+  <div class="sec-nav " :class="{ active: isNavOpen }">
     <ul>
       <li><router-link to="/home">الرئيسية</router-link></li>
       <li><router-link to="/about">من نحن</router-link></li>
-      <li><router-link to="/home">راسلنا</router-link></li>
+      <li><router-link to="/Emailus">راسلنا</router-link></li>
     </ul>
     <div class="button">
       <a href="">تطوع معنا</a>
@@ -72,41 +69,17 @@ nav .col-se .button {
 }
 
 nav .col-se .se {
-  display: flex;
-  width: 58%;
-  height: 34px;
-  align-items: center;
-  justify-content: start;
-  gap: 10px;
   border: 0.5px solid #b3b2b2;
-  padding: 0 8px 0 0;
-  border-radius: 2px;
-  background-color: #eee;
-  color: #777 !important;
-}
-
-nav .col-se .se p {
-  margin: 0;
 }
 
 nav .col-menu {
-  width: 50%;
+
   color: var(--text-color);
   gap: 75px;
-  display: flex;
-  justify-content: start;
-  font-size: 20px;
-  font-weight: 400;
-  align-items: center;
-  padding: 0 60px;
 }
 
 nav a.router-link-exact-active {
   color: var(--main-color) !important;
-}
-
-nav .bar {
-  font-size: 32px;
 }
 
 @media (max-width: 1000px) {
@@ -118,13 +91,14 @@ nav .bar {
 @media (max-width: 940px) {
   nav .col-menu {
     padding: 0 !important;
+    gap: 25px !important;
   }
 }
 
 @media (max-width: 800px) {
   nav .col-menu {
     padding: 0 !important;
-    gap: 50px !important;
+
   }
 
   nav .col-se .se {
@@ -142,7 +116,7 @@ nav .bar {
   }
 
   nav .col-se {
-    display: none;
+    display: none !important;
   }
 
   nav .col-se .button {
@@ -201,7 +175,7 @@ nav .bar {
 
 @media (min-width: 600px) {
   nav .bar {
-    display: none;
+    display: none !important;
   }
 
   .sec-nav {

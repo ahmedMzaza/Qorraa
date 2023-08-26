@@ -163,34 +163,30 @@ export default {
 };
 </script>
 <template>
-  <div class="home">
+  <div class="home d-flex flex-column align-items-center">
     <div class="container">
-      <a href="" class="se">
+      <a href="" class="se ">
         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-        <p>بحث</p>
+        <p class=" m-0 p-0">بحث</p>
       </a>
     </div>
     <div class="container">
-      <div class="cards row">
-        <div class="col-md-4 col-12 col4">
-          <div
-            class="card Arow"
-            v-for="(card, index) in cardsReading.slice(1, 3)"
-            :key="index"
-          >
-            <img :src="card.img" class="row" :alt="'Image ' + (index + 1)" />
-            <div class="text">
-              <p>{{ card["date"] }}</p>
-              <p>كتب بواسطة: {{ card["author"] }}</p>
+      <div class="cards row justify-content-between py-5 px-2">
+        <div class="col-md-4 col-12 col4 p-0 ">
+          <div class="card Arow p-0 border-0 p-0" v-for="(card, index) in cardsReading.slice(1, 3)" :key="index">
+            <img :src="card.img" class="row p-0 m-0" :alt="'Image ' + (index + 1)" />
+            <div class="text  d-flex justify-content-between m-0 p-0">
+              <p class="m-0 p-0 pt-2">{{ card["date"] }}</p>
+              <p class="m-0 p-0 pt-2">كتب بواسطة: {{ card["author"] }}</p>
             </div>
             <h4>{{ card["titleCard"] }}</h4>
           </div>
         </div>
-        <div class="card col-md-8 col-12">
-          <img :src="cardsReading[0].img" alt="" />
-          <div class="text">
-            <p>{{ cardsReading[0]["date"] }}</p>
-            <p>كتب بواسطة: {{ cardsReading[0]["author"] }}</p>
+        <div class="card border-0 p-0 col-md-8 col-12">
+          <img :src="cardsReading[0].img" alt="" class="p-0 m-0" />
+          <div class="text d-flex justify-content-between m-0 p-0">
+            <p class="m-0 p-0 pt-2">{{ cardsReading[0]["date"] }}</p>
+            <p class="m-0 p-0 pt-2">كتب بواسطة: {{ cardsReading[0]["author"] }}</p>
           </div>
 
           <h4>{{ cardsReading[0]["titleCard"] }}</h4>
@@ -198,36 +194,25 @@ export default {
       </div>
       <!---- Start First Swiper ---->
       <div class="title">الاقسام</div>
-      <swiper
-        class="FrSwiper"
-        :slidesPerView="5"
-        :spaceBetween="20"
-        :slidesPerGroup="1"
-        :loop="true"
-        :loopFillGroupWithBlank="true"
-        :modules="modules"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :navigation="{
+      <swiper class="FrSwiper" :slidesPerView="5" :spaceBetween="20" :slidesPerGroup="1" :loop="true"
+        :loopFillGroupWithBlank="true" :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange" :navigation="{
           nextEl: '.FrSwiperNext',
           prevEl: '.FrSwiperPrev',
-        }"
-        :breakpoints="{
-          '320': {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          '640': {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          '1200': {
-            slidesPerView: 5,
-            spaceBetween: 10,
-          },
-        }"
-      >
-        <SwiperSlide class="cardB" v-for="card in sections">
+        }" :breakpoints="{
+  '320': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '640': {
+    slidesPerView: 3,
+    spaceBetween: 10,
+  },
+  '1200': {
+    slidesPerView: 5,
+    spaceBetween: 10,
+  },
+}">
+        <SwiperSlide class="cardB position-relative" v-for="card in sections">
           <img :src="card['img']" />
           <p>{{ card["title"] }}</p>
         </SwiperSlide>
@@ -243,13 +228,13 @@ export default {
 
     <!---- Start Latest articles ---->
     <div class="container">
-      <div class="textSe">
+      <div class="textSe d-flex justify-content-between align-items-center ">
         <div class="title">أحدث المقالات</div>
         <p>عرض الجميع</p>
       </div>
-      <div class="cardSe">
-        <img :src="cardsReading[0].img" />
-        <div class="textCardSe">
+      <div class="cardSe d-flex justify-content-between position-relative ">
+        <img :src="cardsReading[0].img" class="w-50" />
+        <div class="textCardSe d-flex justify-content-center align-items-start w-50 flex-column">
           <p>كتب بواسطة : {{ cardsReading[0]["author"] }}</p>
           <h4>{{ cardsReading[0]["titleCard"] }}</h4>
           <p class="p pe">{{ cardsReading[0]["textTitleCard"] }}</p>
@@ -258,9 +243,9 @@ export default {
           <p>{{ cardsReading[0]["date"] }}</p>
         </div>
       </div>
-      <div class="cardSe">
-        <img :src="cardsReading[3].img" />
-        <div class="textCardSe">
+      <div class="cardSe d-flex justify-content-between position-relative ">
+        <img :src="cardsReading[3].img" class="w-50" />
+        <div class="textCardSe d-flex justify-content-center align-items-start w-50 flex-column">
           <p>كتب بواسطة : {{ cardsReading[0]["author"] }}</p>
           <h4>{{ cardsReading[0]["titleCard"] }}</h4>
           <p class="p pe">{{ cardsReading[0]["textTitleCard"] }}</p>
@@ -274,12 +259,12 @@ export default {
     <!---- Start Second Swiper ---->
 
     <div class="container">
-      <div class="textSe">
+      <div class="textSe  d-flex justify-content-between align-items-center ">
         <div class="title">الأكثر قراءة</div>
 
         <p>عرض الجميع</p>
       </div>
-      <div class="Bswiper">
+      <div class="Bswiper  d-flex justify-content-between align-items-center ">
         <div class="swiper-button-prev SeSwiperPrev">
           <font-awesome-icon icon="fa-solid fa-arrow-right-long" />
         </div>
@@ -287,38 +272,27 @@ export default {
           <font-awesome-icon icon="fa-solid fa-arrow-left-long" />
         </div>
       </div>
-      <swiper
-        class="SeSwiper"
-        :slidesPerView="3"
-        :spaceBetween="20"
-        :slidesPerGroup="1"
-        :loop="true"
-        :loopFillGroupWithBlank="true"
-        :modules="modules"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :navigation="{
+      <swiper class="SeSwiper" :slidesPerView="3" :spaceBetween="20" :slidesPerGroup="1" :loop="true"
+        :loopFillGroupWithBlank="true" :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange" :navigation="{
           nextEl: '.SeSwiperNext',
           prevEl: '.SeSwiperPrev',
-        }"
-        :breakpoints="{
-          '320': {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          '640': {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          '1200': {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-        }"
-      >
+        }" :breakpoints="{
+  '320': {
+    slidesPerView: 1,
+    spaceBetween: 10,
+  },
+  '640': {
+    slidesPerView: 2,
+    spaceBetween: 10,
+  },
+  '1200': {
+    slidesPerView: 3,
+    spaceBetween: 10,
+  },
+}">
         <SwiperSlide v-for="card in cardsReading">
           <img :src="card['img']" />
-          <div class="text">
+          <div class="text  d-flex justify-content-between align-items-center">
             <p>{{ card["date"] }}</p>
             <p>كتب بواسطة: {{ card["author"] }}</p>
           </div>
@@ -329,7 +303,7 @@ export default {
     <!---- End Second Swiper ---->
     <!---- Start Email ---->
     <div class="container">
-      <div class="line"></div>
+      <div class="line  d-flex flex-column align-items-center"></div>
       <div class="form">
         <h1>اشترك ليصلك جميع المقالات</h1>
         <h4>
@@ -349,6 +323,10 @@ export default {
 
 <style scoped>
 /*************** Start Global ***************/
+.swiper-button-prev,
+.swiper-button-next {
+  z-index: 2 !important;
+}
 
 .container {
   padding: 0;
@@ -358,9 +336,6 @@ export default {
 .home {
   padding: var(--padding);
   padding-top: 100px !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
 }
 
@@ -378,46 +353,20 @@ export default {
 /*************** End Global ***************/
 /*************** Start Cards ***************/
 
-.home .cards {
-  justify-content: space-between;
-  padding: 50px 11px;
-}
-
-.home .cards .card {
-  border: none;
-  padding: 0;
-}
-
-.home .cards .col4 {
-  padding: 0;
-}
-
-.home .cards .card.Arow {
-  padding: 0;
-}
-
 .home .cards .Arow img {
   width: 90%;
 }
 
 .home .cards .card .text {
-  display: flex;
-  justify-content: space-between;
   color: #777;
   font-size: 14px;
-  padding: 0;
-  margin: 0;
 }
 
 .home .cards .card.Arow .text {
   font-size: 12px;
-  width: 90%;
+  width: 90% !important;
 }
 
-.home .cards .card .text p {
-  padding: 10px 0 0 0;
-  margin: 0;
-}
 
 .home .cards .card.Arow h4 {
   font-size: 16px;
@@ -430,8 +379,6 @@ export default {
 }
 
 .home .cards img {
-  padding: 0;
-  margin: 0;
   box-shadow: 1px 2px 20px;
 }
 
@@ -449,10 +396,7 @@ export default {
   gap: 10px;
 }
 
-.home .se p {
-  margin: 0;
-  padding: 0;
-}
+
 
 /*************** End Cards ***************/
 /*************** Start First Swiper ***************/
@@ -523,23 +467,11 @@ export default {
 /*************** Start Latest articles ***************/
 
 .cardSe {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 50px;
-  position: relative;
-}
-
-.cardSe img {
-  width: 50%;
 }
 
 .cardSe .textCardSe {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding-right: 50px;
-  align-items: start;
-  width: 50%;
 }
 
 .cardSe .textCardSe p.more {
@@ -569,9 +501,6 @@ export default {
 }
 
 .textSe {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px 0;
 }
 
@@ -595,21 +524,12 @@ export default {
 }
 
 .Bswiper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px 18px;
 }
 
 .swiper.SeSwiper .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 225px;
-}
-
-.swiper.SeSwiper .swiper-wrapper .swiper-slide .text {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .swiper.SeSwiper .swiper-wrapper .swiper-slide .text p {
@@ -644,9 +564,6 @@ export default {
 
 .form {
   margin: 0 0 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .form h1 {
@@ -703,11 +620,15 @@ export default {
     padding: 0px 25px;
   }
 
+  .swiper-button-prev.FrSwiperPrev {
+    right: -15px;
+  }
+
   .title {
     font-size: 24px;
   }
 
-  .title + p {
+  .title+p {
     font-size: 12px;
   }
 
@@ -753,7 +674,7 @@ export default {
     width: 100% !important;
   }
 
-  .home .cards > .card {
+  .home .cards>.card {
     width: 100% !important;
   }
 
